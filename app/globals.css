@@ -1,0 +1,353 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* MBTA Brand Colors */
+  --mbta-blue: #003da5;
+  --mbta-red: #da291c;
+  --mbta-orange: #ed8b00;
+  --mbta-green: #00843d;
+  --mbta-silver: #7c878e;
+  --mbta-commuter: #80276c;
+  --mbta-bus: #ffc72c;
+  --mbta-ferry: #008eaa;
+  --mbta-ride: #52bbd0;
+
+  /* Core Theme */
+  --background: oklch(0.98 0 0);
+  --foreground: oklch(0.15 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0 0);
+  --primary: oklch(0.35 0.15 255);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.96 0 0);
+  --secondary-foreground: oklch(0.2 0 0);
+  --muted: oklch(0.95 0 0);
+  --muted-foreground: oklch(0.5 0 0);
+  --accent: oklch(0.96 0 0);
+  --accent-foreground: oklch(0.2 0 0);
+  --destructive: oklch(0.55 0.22 27);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.9 0 0);
+  --input: oklch(0.9 0 0);
+  --ring: oklch(0.35 0.15 255);
+  --chart-1: oklch(0.55 0.22 27);
+  --chart-2: oklch(0.6 0.18 150);
+  --chart-3: oklch(0.7 0.15 50);
+  --chart-4: oklch(0.55 0.2 255);
+  --chart-5: oklch(0.5 0.15 300);
+  --radius: 0.75rem;
+  --sidebar: oklch(0.98 0 0);
+  --sidebar-foreground: oklch(0.15 0 0);
+  --sidebar-primary: oklch(0.35 0.15 255);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.96 0 0);
+  --sidebar-accent-foreground: oklch(0.2 0 0);
+  --sidebar-border: oklch(0.9 0 0);
+  --sidebar-ring: oklch(0.35 0.15 255);
+}
+
+.dark {
+  --background: oklch(0.12 0.02 255);
+  --foreground: oklch(0.95 0 0);
+  --card: oklch(0.15 0.02 255);
+  --card-foreground: oklch(0.95 0 0);
+  --popover: oklch(0.15 0.02 255);
+  --popover-foreground: oklch(0.95 0 0);
+  --primary: oklch(0.6 0.15 255);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.22 0.02 255);
+  --secondary-foreground: oklch(0.95 0 0);
+  --muted: oklch(0.22 0.02 255);
+  --muted-foreground: oklch(0.65 0 0);
+  --accent: oklch(0.22 0.02 255);
+  --accent-foreground: oklch(0.95 0 0);
+  --destructive: oklch(0.45 0.2 25);
+  --destructive-foreground: oklch(0.95 0 0);
+  --border: oklch(0.25 0.02 255);
+  --input: oklch(0.25 0.02 255);
+  --ring: oklch(0.5 0.15 255);
+  --chart-1: oklch(0.55 0.22 27);
+  --chart-2: oklch(0.6 0.18 150);
+  --chart-3: oklch(0.7 0.15 50);
+  --chart-4: oklch(0.55 0.2 255);
+  --chart-5: oklch(0.5 0.15 300);
+  --sidebar: oklch(0.15 0.02 255);
+  --sidebar-foreground: oklch(0.95 0 0);
+  --sidebar-primary: oklch(0.6 0.15 255);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.22 0.02 255);
+  --sidebar-accent-foreground: oklch(0.95 0 0);
+  --sidebar-border: oklch(0.25 0.02 255);
+  --sidebar-ring: oklch(0.5 0.15 255);
+}
+
+@theme inline {
+  --font-sans: "Geist", "Geist Fallback", system-ui, sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback", monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* MBTA Colors */
+  --color-mbta-blue: var(--mbta-blue);
+  --color-mbta-red: var(--mbta-red);
+  --color-mbta-orange: var(--mbta-orange);
+  --color-mbta-green: var(--mbta-green);
+  --color-mbta-silver: var(--mbta-silver);
+  --color-mbta-commuter: var(--mbta-commuter);
+  --color-mbta-bus: var(--mbta-bus);
+  --color-mbta-ferry: var(--mbta-ferry);
+  --color-mbta-ride: var(--mbta-ride);
+
+  /* Custom breakpoint for extra small screens */
+  --breakpoint-xs: 475px;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Improved safe area support with proper z-index layering */
+:root {
+  --safe-area-top: env(safe-area-inset-top, 0px);
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-left: env(safe-area-inset-left, 0px);
+  --safe-area-right: env(safe-area-inset-right, 0px);
+}
+
+/* Z-index scale for proper layering */
+:root {
+  --z-base: 0;
+  --z-map: 10;
+  --z-map-controls: 20;
+  --z-header: 30;
+  --z-navigation: 40;
+  --z-sheet: 50;
+  --z-modal: 9999;
+}
+
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .h-safe-area-inset-bottom {
+    height: var(--safe-area-bottom);
+  }
+
+  .pb-safe {
+    padding-bottom: var(--safe-area-bottom);
+  }
+
+  .pt-safe {
+    padding-top: var(--safe-area-top);
+  }
+
+  .px-safe {
+    padding-left: var(--safe-area-left);
+    padding-right: var(--safe-area-right);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+@media (min-width: 640px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: oklch(0.7 0 0);
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: oklch(0.4 0 0);
+}
+
+/* Map styles */
+.leaflet-container {
+  background: var(--background);
+  font-family: var(--font-sans);
+  z-index: var(--z-map) !important;
+}
+
+/* Ensure leaflet controls stay within map bounds */
+.leaflet-control-container {
+  z-index: var(--z-map-controls) !important;
+}
+
+/* Glassmorphism */
+.glass {
+  background: oklch(1 0 0 / 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid oklch(0 0 0 / 0.08);
+}
+
+.dark .glass {
+  background: oklch(0.15 0.02 255 / 0.85);
+  border: 1px solid oklch(1 0 0 / 0.08);
+}
+
+/* Pulse animation for risky connections */
+@keyframes pulse-warning {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.pulse-warning {
+  animation: pulse-warning 1.5s ease-in-out infinite;
+}
+
+/* Heat map segment animation */
+@keyframes heat-pulse {
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.heat-pulse {
+  animation: heat-pulse 2s ease-in-out infinite;
+}
+
+/* Better touch targets - only apply min sizes to interactive elements without breaking layout */
+@media (pointer: coarse) {
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+}
+
+/* Improved focus states for accessibility */
+@media (pointer: fine) {
+  button:focus-visible,
+  [role="button"]:focus-visible,
+  a:focus-visible,
+  input:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
+
+/* Hide scrollbar on mobile bottom sheet for cleaner UI */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Better responsive container for map to prevent overflow */
+.map-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Tablet-specific adjustments */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .tablet-stack {
+    flex-direction: column !important;
+  }
+
+  .tablet-full-width {
+    width: 100% !important;
+    max-width: none !important;
+  }
+}
+
+/* Responsive text utilities */
+@layer utilities {
+  .text-responsive-sm {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .text-responsive-sm {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+    }
+  }
+
+  .text-responsive-base {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .text-responsive-base {
+      font-size: 1rem;
+      line-height: 1.5rem;
+    }
+  }
+}
